@@ -24,7 +24,7 @@ float filtered_distance = Setpoint;
 // PID constants
 double Kp = 600.0;
 double Ki = 0.0;
-double Kd = 150.0;
+double Kd = 100.0;
 
 PID myPID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 
@@ -133,8 +133,8 @@ void setup() {
 
   esp_now_register_recv_cb(OnDataRecv);
 
-  stepper.setMaxSpeed(30000.0);
-  stepper.setAcceleration(20000.0);
+  stepper.setMaxSpeed(25000.0);
+  stepper.setAcceleration(18000.0);
   stepper.setCurrentPosition(min_steps);
   target_step_sync = min_steps;
   stepper.moveTo(min_steps);
